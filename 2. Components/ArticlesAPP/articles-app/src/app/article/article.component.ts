@@ -9,8 +9,8 @@ import { Article } from '../models/article.model';
 export class ArticleComponent {
 
     private symbols: number = 250;
-    @Input() article: Article;
-    @Input() articleDesc: string;
+    @Input() article!: Article;
+    @Input() articleDesc!: string;
     descToShow: string;
     articleDescLength: number;
     showReadMoreBtn: boolean = true;
@@ -21,5 +21,15 @@ export class ArticleComponent {
     constructor() {
         this.articleDescLength = 0;
         this.descToShow = '';
+    }
+
+    readMore(): void {
+        this.articleDescLength += this.symbols;
+        if (this.articleDescLength >= this.articleDesc.length) {
+            this.showHideBtn = true;
+            this.showReadMoreBtn = false;
+        } else {
+            this.descToShow = this.articleDesc.substring(0, this.articleDescLength);
+        }
     }
 }
