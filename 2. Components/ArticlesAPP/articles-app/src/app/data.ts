@@ -10,4 +10,5 @@ export class ArticleData {
         }
         return articles;
     }
+    
 }
