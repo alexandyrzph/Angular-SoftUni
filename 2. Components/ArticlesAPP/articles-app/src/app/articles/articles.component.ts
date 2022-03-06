@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ArticleData } from '../data';
 import { Article } from '../models/article.model';
 
 @Component({
