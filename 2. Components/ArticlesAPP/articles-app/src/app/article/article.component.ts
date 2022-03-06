@@ -15,7 +15,7 @@ export class ArticleComponent {
     articleDescLength: number;
     showReadMoreBtn: boolean = true;
     showHideBtn: boolean = false;
-    imageIsShow: boolean = false;
+    imageIsShown: boolean = false;
     imageButtonTitle: string = 'Show image';
 
     constructor() {
@@ -34,7 +34,14 @@ export class ArticleComponent {
     }
 
     toggleImage(): void {
-        this.imageIsShow = !this.imageIsShow;
+        this.imageIsShown = !this.imageIsShown;
         this.imageButtonTitle = this.imageButtonTitle == 'Show image' ? 'Hide image' : 'Show image';
+    }
+
+    hideDesc(): void {
+        this.descToShow = '';
+        this.articleDescLength = 0;
+        this.showHideBtn = false;
+        this.showReadMoreBtn = true;
     }
 }
