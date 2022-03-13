@@ -1,0 +1,10 @@
+:host {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: space-evenly;
+}
+
+main {
+    width: 50%;
+}
