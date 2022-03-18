@@ -1,17 +1,6 @@
 <div class="aside">
-    <h2 class="title">
-        Recent posts
-    </h2>
-    <div *ngIf="postList">
-        <div class="aside-theme" *ngFor="let post of postList">
-            <a href="#">
-                <h3>{{post.themeId.themeName}}</h3>
-                <p>{{post.userId.username}}</p>
-                <p><span>{{post.created_at}}</span></p>
-            </a>
-        </div>
-    </div>
-    <div *ngIf="!postList">
-        <i>Loading &hellip;</i>
-    </div>
+  <h2 class="title">
+    Recent posts
+  </h2>
+  <app-post-list></app-post-list>
 </div>

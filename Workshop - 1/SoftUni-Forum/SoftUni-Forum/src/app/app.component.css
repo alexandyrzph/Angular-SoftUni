@@ -1,10 +1,14 @@
 :host {
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-around;
 }
 
 main {
-    width: 50%;
+  width: 50%;
+}
+
+aside {
+  width: 30%;
+  margin-top: 1em;
+  font-size: 0.8em;
 }
