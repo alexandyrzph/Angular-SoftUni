@@ -1,0 +1,53 @@
+<div *ngIf="!!currentTheme else loadingIndicator" class="theme-content">
+    <!-- theme-title  -->
+    <div class="theme-title">
+        <div class="theme-name-wrapper">
+            <div class="theme-name">
+                <h2>{{currentTheme.themeName}}</h2>
+                <p>Date: <time>{{currentTheme.created_at}}</time></p>
+            </div>
+            <div class="subscribers">
+                <p>Subscribers: <span>{{currentTheme.subscribers.length}}</span></p>
+                <ng-container *ngIf="isLoggedIn">
+                    <button *ngIf="canSubscribe" class="subscribe">Subscribe</button>
+                    <button *ngIf="!canSubscribe" class="unsubscribe">Unsubscribe</button>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+    <!-- comment  -->
+    <div class="comment" *ngFor="let comment of currentTheme.posts">
+        <header class="header">
+            <p><span>{{comment.userId.username}}</span> posted on <time>{{comment.created_at}}</time></p>
+        </header>
+        <div class="comment-main">
+            <div class="userdetails">
+                <img src="/assets/profile.png" alt="avatar">
+            </div>
+            <div class="post-content">
+                <p>{{comment.text}}
+                    <p>
+            </div>
+        </div>
+        <div class="footer">
+            <i *ngIf="isLoggedIn && canLike(comment)" class="fas fa-thumbs-up"></i>
+            <i *ngIf="isLoggedIn && !canLike(comment)" class="fas fa-thumbs-down"></i>
+            <p><span>{{comment.likes.length}}</span> likes</p>
+        </div>
+    </div>
+
+    <div *ngIf="isLoggedIn" class="answer-comment">
+        <p><span>currentUser</span> comment:</p>
+        <div class="answer">
+            <form>
+                <textarea name="postText" id="comment" cols="30" rows="10"></textarea>
+                <button>Post</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<ng-template #loadingIndicator>
+    <h1>Loading&hellip;</h1>
+</ng-template>

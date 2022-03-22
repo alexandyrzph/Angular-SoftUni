@@ -9,10 +9,13 @@ const apiUrl = environment.apiUrl;
 @Injectable()
 export class ThemeService {
 
-  constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) { }
 
-  loadThemeList(): Observable<ITheme[]> {
-    return this.http.get<ITheme[]>(`${apiUrl}/themes`);
-  }
+    loadThemeList(): Observable<ITheme[]> {
+        return this.http.get<ITheme[]>(`${apiUrl}/themes`);
+    }
 
+    loadThemeById(id): Observable<ITheme> {
+        return this.http.get<ITheme>(`${apiUrl}/themes/${id}`);
+    }
 }
